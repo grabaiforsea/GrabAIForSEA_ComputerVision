@@ -1,0 +1,9 @@
+.ipynb_checkpoints/
+.idea/
+__pycache__/
+cars_train/
+cars_train_prepped/
+*.mat
+*.m
+*.txt
+train_annotations.csv
