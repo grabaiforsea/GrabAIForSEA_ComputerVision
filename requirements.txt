@@ -1,0 +1,26 @@
+################################################################
+#
+# Python package requirements for this project.
+#
+# You can install all required Python packages by running
+# the following commands in a shell:
+#
+#     pip install -r requirements.txt
+#
+################################################################
+# Basic packages
+
+python==3.7.1
+numpy==1.16.1
+pandas==0.24.2
+pillow==5.4.1
+
+################################################################
+# TensorFlow, choose only one and commment out the other
+
+# tensorflow==1.13.1
+tensorflow-gpu==1.13.1
+
+# TensorBoard (optional) for viewing log files
+
+tensorboard

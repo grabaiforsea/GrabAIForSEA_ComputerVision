@@ -5,5 +5,6 @@ cars_train/
 cars_train_prepped/
 *.mat
 *.m
-*.txt
+train_perfect_preds.txt
+README.txt
 train_annotations.csv
