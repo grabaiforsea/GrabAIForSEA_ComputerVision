@@ -2,7 +2,6 @@ import utils
 from AugmentedDataLoader import AugmentedDataLoader
 from BilinearCarsNet import BilinearCarsNet
 
-# 150 epochs done
 cars_net = BilinearCarsNet(learning_rate=utils.LEARNING_RATE, use_augmentation=True)
 
 augmented_loader = AugmentedDataLoader()

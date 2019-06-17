@@ -5,8 +5,8 @@
 This is a submission to Computer Vision challenge of ***AI For SEA*** competition organised by Grab.
 Given the Stanford Cars dataset [1], the goal is to recognise model and make from images of cars.
 
-The proposed approaches are based on deep learning for image recognition, 
-including Bilinear Convolutional Neural Network (BiCNN) with and without data augmentation. 
+The proposed approach based on deep learning for image recognition, particularly 
+Bilinear Convolutional Neural Network (BiCNN) with data augmentation. 
 
 ## Environment
 
