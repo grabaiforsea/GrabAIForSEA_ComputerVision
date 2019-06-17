@@ -3,8 +3,11 @@
 __pycache__/
 cars_train/
 cars_train_prepped/
+cars_augmented/
 *.mat
 *.m
 train_perfect_preds.txt
 README.txt
 train_annotations.csv
+checkpoints/
+logs/

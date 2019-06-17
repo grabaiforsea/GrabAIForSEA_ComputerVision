@@ -25,10 +25,15 @@ def _l2_normalise(x, axis=1):
 
 
 class BilinearCarsNet(object):
-    def __init__(self, learning_rate):
-        if os.path.isfile(CHECKPOINT_DIR):
+    def __init__(self, learning_rate=LEARNING_RATE, use_augmentation=False):
+        if use_augmentation:
+            ckpt = AUG_CKPT
+        else:
+            ckpt = CHECKPOINT_DIR
+
+        if os.path.isfile(ckpt):
             print('Loading model from checkpoint...')
-            self.model = load_model(CHECKPOINT_DIR)
+            self.model = load_model(ckpt)
         else:
             self.model = self.build_model()
 
@@ -97,11 +102,21 @@ class BilinearCarsNet(object):
 
         return bcnn_model
 
-    def fit(self, train_x, train_y, val_x, val_y, epochs, batch_size):
-        checkpoint = ModelCheckpoint(filepath=CHECKPOINT_DIR, monitor='val_acc',
+    def fit(self, train_flow, val_flow, augment=False):
+        if augment:
+            ckpt = AUG_CKPT
+            log = AUG_LOG
+        else:
+            ckpt = CHECKPOINT_DIR
+            log = LOG_DIR
+
+        checkpoint = ModelCheckpoint(filepath=ckpt, monitor='val_acc',
                                      verbose=1, save_best_only=False)
-        tensorboard = TensorBoard(log_dir=LOG_DIR)
+        tensorboard = TensorBoard(log_dir=log)
         callbacks = [checkpoint, tensorboard]
 
-        self.model.fit(x=train_x, y=train_y, batch_size=batch_size, epochs=epochs, callbacks=callbacks,
-                       validation_data=(val_x, val_y))
+        self.model.fit_generator(generator=train_flow, epochs=N_EPOCHS, callbacks=callbacks,
+                                 validation_data=val_flow, workers=4)
+
+    def predict(self, data_flow):
+        return self.model.predict(data_flow)

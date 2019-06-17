@@ -4,14 +4,13 @@ IMG_CHANNEL = 3
 
 N_CLASSES = 196
 
-LEARNING_RATE = 5e-3
-RESNET_LR = 3e-4
+LEARNING_RATE = 7e-3
 
 BATCH_SIZE = 8
-N_EPOCHS = 10
+N_EPOCHS = 30
 
-CHECKPOINT_DIR = 'checkpoints/cars_bicnn.best.hdf5'
-RESNET_CKPT = 'checkpoints/cars_resnet.hdf5'
+CHECKPOINT_DIR = 'checkpoints/cars_bicnn.hdf5'
+AUG_CKPT = 'checkpoints/cars_bicnn_aug_2.hdf5'
 
-LOG_DIR = 'logs/bilinear/'
-RESNET_LOG = 'logs/resnet/'
+LOG_DIR = 'logs/bilinear-noaug/'
+AUG_LOG = 'logs/bilinear-aug-2/'
